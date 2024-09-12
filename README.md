@@ -29,7 +29,7 @@
 
 ### 2. 在 HTML 页面中使用
 
-在页面中添加一个带有 `module-html` 属性的 `div` 元素，指定要加载的模块文件。你可以选择是否加载对应的 CSS 和 JS 文件（你也可以将 CSS 和 JS 写在 HTML 中，但这不适用于模块化加载 HTML 的情况）。
+在页面中添加一个带有 `module-html` 属性的 `div` 元素，指定要加载的模块文件。你可以选择是否加载对应的 CSS 和 JS 文件（你也可以将 CSS 和 JS 写在 HTML 中，但是不推荐如此）。
 
 #### 示例
 
@@ -41,7 +41,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>模块化加载示例</title>
   <!-- 引入 module-loader.js -->
-  <script src="https://ghproxy.com/https://raw.githubusercontent.com/LoosePrince/module-html/main/module-loader.js" defer></script>
+  <script src="https://cdn.jsdelivr.net/gh/LoosePrince/module-html@main/module-loader.js" defer></script>
 </head>
 <body>
 
@@ -94,9 +94,53 @@ document.querySelectorAll('.module').forEach(module => {
 });
 ```
 
+#### 一体化 HTML 模块（`module.html`）
+
+```html
+<div id="moduleid" class="module">
+    <h2>这是模块 1</h2>
+    <p>这是模块 1 的内容部分。</p>
+    <style>
+        .module {
+            background-color: lightblue;
+            padding: 10px;
+            border: 1px solid #000;
+        }
+    </style>
+    <script>
+        document.querySelectorAll('#moduleid').forEach(module => {
+            console.log('模块已经加载: ', module);
+        });
+    </script>
+</div>
+<div id="moduleid2" class="module">
+    <h2>这是模块 2</h2>
+    <p>这是模块 2 的内容部分。</p>
+    <style>
+        .module {
+            background-color: lightblue;
+            padding: 10px;
+            border: 1px solid #000;
+        }
+    </style>
+    <script>
+        document.querySelectorAll('#moduleid2').forEach(module => {
+            console.log('模块 2 已经加载: ', module);
+        });
+    </script>
+</div>
+<div id="moduleid3" class="module">
+    <h2>这是模块 3</h2>
+    <p>这是模块 3 的内容部分。</p>
+    <!-- 不支持外部 css -->
+    <script src="module.js"></script>
+</div>
+```
+
 ### 4. 使用说明
 
-- **加载 HTML 子模块**：通过 `module-html` 属性指定 HTML 文件。如果需要加载特定的子模块，可以使用点号分隔文件名与 `id`（如 `module.moduleid`）。
+- **加载 HTML 子模块**：通过 `module-html` 属性指定 HTML 文件。指定特定的子模块，使用点号分隔文件名与 `id`（如 `module.moduleid`）。
+- **整体加载**：通过 `module-html` 属性指定 HTML 文件不指定子模块，整体加载不会替换原有 `div`
 - **CSS 和 JS 文件**：通过 `module-css` 和 `module-js` 属性指定要加载的样式和脚本文件。文件后缀 `.css` 和 `.js` 可选。
 - **替换机制**：模块加载后，会移除原始的 `<div>` 并替换为加载的模块内容。
 - **错误处理**：当文件加载失败时，仅会在控制台打印错误信息，不影响页面显示。
@@ -153,6 +197,10 @@ module-html/
 ### 模块加载失败时是否会影响页面/错误处理？
 
 不会。模块加载失败时，只会在浏览器的开发者工具控制台中提示错误，而不会在页面中显示错误内容，用户的页面体验不会受到影响。
+
+### 子模块加载的js和css和module-js的加载有什么区别？
+
+模板中的 `<script>` 是内联的，随模块内容一起插入页面，插入时即执行；**module-js** 文件则作为外部资源加载，且加载顺序受到控制。通常模板 HTML 中的 `<script>` 会被优先加载。
 
 ## 其它
 
