@@ -1,7 +1,7 @@
 # Module HTML Loader
 [![页面浏览量计数](https://badges.toozhao.com/badges/01J7R020C5F3JE1P73WH453YCW/green.svg)](/) 
 [![查看次数起始时间](https://img.shields.io/badge/查看次数统计起始于-2024%2F09%2F14-1?style=flat-square)](/)
-[![233](https://www.xzt.plus/track)](/) 
+[![233](https://www.xzt.plus/track?id=module-loader)](/) 
 
 中文 | [英文](/)
 
