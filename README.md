@@ -1,4 +1,7 @@
 # Module HTML Loader
+[![页面浏览量计数](https://badges.toozhao.com/badges/01J7R020C5F3JE1P73WH453YCW/green.svg)](/) 
+[![查看次数起始时间](https://img.shields.io/badge/查看次数统计起始于-2024%2F09%2F14-1?style=flat-square)](/)
+
 中文 | [英文](/)
 
 `Module HTML Loader` 是一个简单的 JavaScript 工具，允许你在 HTML 页面中动态加载模块化的 HTML、CSS 和 JavaScript 文件。它支持加载子模块以及根据需要自动加载对应的 CSS 和 JS 文件，使得页面模块化变得更加简单。
