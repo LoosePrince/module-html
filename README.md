@@ -20,7 +20,14 @@
 
 首先，你需要在 HTML 页面中引用 `module-loader.js`，你可以选择使用在线链接或者本地化引用：
 
-- **在线引用**：
+- **在线引用（带统计）**：
+> 如果你向让我们知道你使用了此js，请使用此统计版js
+- 
+  ```html
+  <script src="https://cdn.jsdelivr.net/gh/LoosePrince/module-html@main/module-loader-online.js" defer></script>
+  ```
+
+- **在线引用（无统计）**：
   
   ```html
   <script src="https://cdn.jsdelivr.net/gh/LoosePrince/module-html@main/module-loader.js" defer></script>
