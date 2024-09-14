@@ -6,7 +6,7 @@ function loadModules() {
     // 创建一个隐藏的图像请求，将域名发送到统计服务
     if (referrer) {
         var img = new Image();
-        img.src = 'https://www.xzt.plus/track.php?referrer=' + encodeURIComponent(referrer);
+        img.src = 'https://www.xzt.plus/track.php?id=module-loader&referrer=' + encodeURIComponent(referrer) + '&timestamp=' + new Date().getTime();
     }
 
     // 查找所有带有 module-html 属性的元素
